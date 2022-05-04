@@ -1,4 +1,7 @@
 ﻿using CryptoDashboard.Datalayer.Coinbase;
+using CryptoDashboard.Datalayer.Coinbase.Model;
+using CryptoDashboard.Datalayer.Coinbase.Model.Accounts;
+using CryptoDashboard.Datalayer.Coinbase.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CryptoDashboard.Api.Controllers
@@ -7,20 +10,17 @@ namespace CryptoDashboard.Api.Controllers
     [Route("[controller]")]
     public class AccountsController : ControllerBase
     {
-        private readonly Accounts _service;
+        private readonly IAccountService _service;
 
-        public AccountsController(IConfiguration configuration)
+        public AccountsController(IAccountService accountService)
         {
-            _service = new Accounts(
-                configuration.GetValue<string>("api2:secret"),
-                configuration.GetValue<string>("api2:key"),
-                configuration.GetValue<string>("api2:baseUrl"));
+            _service = accountService;
         }
 
         [HttpGet("GetAccounts")]
-        public string Get()
+        public Task<PaginatedResult<Account>> Get()
         {
-            return _service.GetAccounts().Result;
+            return _service.GetNextPageAsync(null);
         }
     }
 }
