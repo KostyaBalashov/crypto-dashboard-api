@@ -1,4 +1,4 @@
-﻿namespace CryptoDashboard.Datalayer.Coinbase.Model.Accounts
+﻿namespace CryptoDashboard.Datalayer.Coinbase.Core.Model.Accounts
 {
     public enum AccountType
     {

@@ -1,14 +1,8 @@
-﻿using CryptoDashboard.Datalayer.Coinbase.Model.Accounts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CryptoDashboard.Datalayer.Coinbase.Core.Model.Accounts;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Services
+namespace CryptoDashboard.Datalayer.Coinbase.Core.Services
 {
-    public interface IAccountService : ICoinbaseEntityService<Account>
+    public interface IAccountService : ICoinbaseRootEntityService<Account>
     {
-
     }
 }

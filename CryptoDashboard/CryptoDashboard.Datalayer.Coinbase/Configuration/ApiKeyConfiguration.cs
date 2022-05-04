@@ -1,10 +1,10 @@
-﻿using CryptoDashboard.Datalayer.Coinbase.Services;
-using CryptoDashboard.Datalayer.Coinbase.Signer;
+﻿using CryptoDashboard.Datalayer.Coinbase.Core.Services;
+using CryptoDashboard.Datalayer.Coinbase.Core.Signer;
 using Flurl.Http;
 using Microsoft.Extensions.Configuration;
 using System.Globalization;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Configuration
+namespace CryptoDashboard.Datalayer.Coinbase.Core.Configuration
 {
     internal class ApiKeyConfiguration : ApiConfiguration
     {
@@ -44,8 +44,8 @@ namespace CryptoDashboard.Datalayer.Coinbase.Configuration
             call.Request.WithHeaders(new
             {
                 CB_ACCESS_KEY = ApiKey,
-                CB_ACCESS_SIGN = _signer.Signe(coinbaseTime.Epoch.ToString(CultureInfo.InvariantCulture), httpMethod, requestPath, body, ApiSecret),
-                CB_ACCESS_TIMESTAMP = coinbaseTime.Epoch,
+                CB_ACCESS_SIGN = _signer.Signe(coinbaseTime.Data.Epoch.ToString(CultureInfo.InvariantCulture), httpMethod, requestPath, body, ApiSecret),
+                CB_ACCESS_TIMESTAMP = coinbaseTime.Data.Epoch,
                 CB_VERSION = ApiVersion,
                 Accept_Language = "fr",
                 Accept = "*/*",

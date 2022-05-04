@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CryptoDashboard.Datalayer.Coinbase.Core.Model.Abstracts;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Model.Accounts
+namespace CryptoDashboard.Datalayer.Coinbase.Core.Model.Accounts
 {
     public class Account : CoinbaseEntity
     {
         public string Name { get; set; } = string.Empty;
 
         public bool Primary { get; set; }
-
-        public string Currency { get; set; } = string.Empty;
 
         public MoneyValue Balance { get; set; } = new MoneyValue(0, string.Empty);
 

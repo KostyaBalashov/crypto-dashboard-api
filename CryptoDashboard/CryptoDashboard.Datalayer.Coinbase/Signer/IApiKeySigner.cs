@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Signer
+namespace CryptoDashboard.Datalayer.Coinbase.Core.Signer
 {
     internal interface IApiKeySigner
     {

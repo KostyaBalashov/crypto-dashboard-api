@@ -1,7 +1,6 @@
-﻿using CryptoDashboard.Datalayer.Coinbase;
-using CryptoDashboard.Datalayer.Coinbase.Model;
-using CryptoDashboard.Datalayer.Coinbase.Model.Accounts;
-using CryptoDashboard.Datalayer.Coinbase.Services;
+﻿using CryptoDashboard.Datalayer.Coinbase.Core.Model.Accounts;
+using CryptoDashboard.Datalayer.Coinbase.Core.Model.Responses;
+using CryptoDashboard.Datalayer.Coinbase.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CryptoDashboard.Api.Controllers
@@ -17,10 +16,16 @@ namespace CryptoDashboard.Api.Controllers
             _service = accountService;
         }
 
-        [HttpGet("GetAccounts")]
+        [HttpGet]
         public Task<PaginatedResult<Account>> Get()
         {
             return _service.GetNextPageAsync(null);
+        }
+
+        [HttpGet("/{id}")]
+        public Task<ApiResponse<Account>> Get([FromQuery] Guid id)
+        {
+            return _service.GetByIdAsync(id);
         }
     }
 }

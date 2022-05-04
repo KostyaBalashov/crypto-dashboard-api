@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CryptoDashboard.Datalayer.Coinbase.Core.Model.Abstracts;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Model.Hashs
+namespace CryptoDashboard.Datalayer.Coinbase.Core.Model.Hashs
 {
     public class PaymentMethodHash : CoinbaseEntityHash
     {

@@ -1,4 +1,4 @@
-﻿namespace CryptoDashboard.Datalayer.Coinbase
+﻿namespace CryptoDashboard.Datalayer.Coinbase.Core
 {
     internal static class Constants
     {
@@ -17,7 +17,9 @@
         #region SEGMENTS
         public const string TIME_SEGMENT = "time";
 
-        public const string ACCOUNTS_SEGMENT = "accounts"; 
+        public const string ACCOUNTS_SEGMENT = "accounts";
+
+        public const string BUYS_SEGMENT = "buys";
         #endregion
 
     }
