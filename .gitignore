@@ -8,3 +8,4 @@
 **/obj
 **/launchSettings.json
 **/appsettings.Development.json
+/CryptoDashboard/CryptoDashboard.Api/CryptoDashboard.Api.csproj.user
