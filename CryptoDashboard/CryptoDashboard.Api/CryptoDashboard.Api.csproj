@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CryptoDashboard.Datalayer.Coinbase\CryptoDashboard.Datalayer.Coinbase.Core.csproj" />
+    <ProjectReference Include="..\CryptoDashboard.Datalayer.Abstraction\CryptoDashboard.Datalayer.Abstraction.csproj" />
+    <ProjectReference Include="..\CryptoDashboard.Datalayer.Coinbase\CryptoDashboard.Datalayer.Coinbase.csproj" />
+    <ProjectReference Include="..\CryptoDashboard.Datalayer.Empty\CryptoDashboard.Datalayer.Empty.csproj" />
   </ItemGroup>
 
 </Project>

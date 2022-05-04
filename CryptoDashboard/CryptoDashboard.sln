@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoDashboard.Api", "Cryp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoDashboard.Datalayer.Abstraction", "CryptoDashboard.Datalayer.Abstraction\CryptoDashboard.Datalayer.Abstraction.csproj", "{8D529656-B575-4057-919D-BE092595E913}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoDashboard.Datalayer.Coinbase.Core", "CryptoDashboard.Datalayer.Coinbase\CryptoDashboard.Datalayer.Coinbase.Core.csproj", "{884CFF54-F189-4F78-9F24-83C5DE723D6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoDashboard.Datalayer.Coinbase.Core", "CryptoDashboard.Datalayer.Coinbase.Core\CryptoDashboard.Datalayer.Coinbase.Core.csproj", "{884CFF54-F189-4F78-9F24-83C5DE723D6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoDashboard.Datalayer.Coinbase", "CryptoDashboard.Datalayer.Coinbase\CryptoDashboard.Datalayer.Coinbase.csproj", "{0DEC1603-79B6-49E3-947F-74C78A074AE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoDashboard.Datalayer.Empty", "CryptoDashboard.Datalayer.Empty\CryptoDashboard.Datalayer.Empty.csproj", "{2D1E8E25-D2BF-46F8-8D1F-D53A750ECFA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{884CFF54-F189-4F78-9F24-83C5DE723D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{884CFF54-F189-4F78-9F24-83C5DE723D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{884CFF54-F189-4F78-9F24-83C5DE723D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DEC1603-79B6-49E3-947F-74C78A074AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEC1603-79B6-49E3-947F-74C78A074AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEC1603-79B6-49E3-947F-74C78A074AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEC1603-79B6-49E3-947F-74C78A074AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1E8E25-D2BF-46F8-8D1F-D53A750ECFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1E8E25-D2BF-46F8-8D1F-D53A750ECFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1E8E25-D2BF-46F8-8D1F-D53A750ECFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1E8E25-D2BF-46F8-8D1F-D53A750ECFA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

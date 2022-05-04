@@ -1,32 +1,19 @@
-﻿using CryptoDashboard.Datalayer.Coinbase.Core.Configuration;
-using CryptoDashboard.Datalayer.Coinbase.Core.Services;
-using CryptoDashboard.Datalayer.Coinbase.Core.Services.Implementation;
-using CryptoDashboard.Datalayer.Coinbase.Core.Signer;
-using Flurl.Http;
-using Flurl.Http.Configuration;
+﻿using CryptoDashboard.Datalayer.Abstraction.Providers;
+using CryptoDashboard.Datalayer.Coinbase.Core;
+using CryptoDashboard.Datalayer.Coinbase.Providers;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CryptoDashboard.Datalayer.Coinbase.Core
+namespace CryptoDashboard.Datalayer.Coinbase
 {
     public static class ServicesExtension
     {
-        public static void AddCoinbaseProvider(this IServiceCollection service)
+        public static void AddCoinbaseProviders(this IServiceCollection service)
         {
-            service.AddSingleton<IFlurlClientFactory, PerBaseUrlFlurlClientFactory>();
-            service.AddSingleton<ITimeService, TimeService>();
-            service.AddSingleton<IApiKeySigner, CoinbaseApiKeySigner>();
+            service.AddCoinbaseServices();
 
-            service.AddSingleton<IApiConfiguration, ApiKeyConfiguration>();
+            service.AddScoped<IWalletsProvider, WalletProvider>();
 
-            service.AddScoped<IAccountService, AccountService>();
-            service.AddScoped<IBuyService, BuyService>();
+            service.AddScoped<ITransactionsProvider, TransactionProvider>();
         }
     }
 }

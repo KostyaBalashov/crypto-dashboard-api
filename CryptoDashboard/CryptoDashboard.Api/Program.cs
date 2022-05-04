@@ -1,4 +1,5 @@
-using CryptoDashboard.Datalayer.Coinbase.Core;
+using CryptoDashboard.Datalayer.Coinbase;
+using CryptoDashboard.Datalayer.Empty;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,8 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCoinbaseProvider();
+builder.Services.AddCoinbaseProviders();
+builder.Services.AddEmptyWalletProvider();
 
 var app = builder.Build();
 
