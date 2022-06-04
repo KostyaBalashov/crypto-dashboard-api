@@ -1,10 +1,5 @@
 ﻿using CryptoDashboard.Datalayer.Abstraction.Providers;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoDashboard.Datalayer.Empty
 {
@@ -14,6 +9,7 @@ namespace CryptoDashboard.Datalayer.Empty
         {
             service.AddScoped<ITransactionsProvider, EmptyTransactionProvider>();
             service.AddScoped<IWalletsProvider, EmptyWalletProvider>();
+            service.AddScoped<IHealthCheck, HealthCheck>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using CryptoDashboard.Datalayer.Abstraction.Model;
+﻿using CryptoDashboard.Api.Models;
+using CryptoDashboard.Datalayer.Abstraction.Model;
 using CryptoDashboard.Datalayer.Abstraction.Providers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,17 +11,42 @@ namespace CryptoDashboard.Api.Controllers
     {
         private readonly IEnumerable<IWalletsProvider> _walletProviders;
         private readonly IEnumerable<ITransactionsProvider> _transactionProviders;
+        private readonly IEnumerable<IHealthCheck> _healthChecks;
 
-        public DashboardController(IEnumerable<IWalletsProvider> walletProviders, IEnumerable<ITransactionsProvider> transactionsProviders)
+        public DashboardController(
+            IEnumerable<IWalletsProvider> walletProviders,
+            IEnumerable<ITransactionsProvider> transactionsProviders,
+            IEnumerable<IHealthCheck> healthChecks)
         {
             _walletProviders = walletProviders;
             _transactionProviders = transactionsProviders;
+            _healthChecks = healthChecks;
         }
 
         [HttpGet("/exchangers")]
-        public IEnumerable<Exchanger> GetExchangers()
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ExchangerInfo>))]
+        public async Task<IEnumerable<ExchangerInfo>> GetExchangersAsync()
         {
-            return _walletProviders.Select(provider => provider.Exchanger);
+            var healthChecking = _walletProviders.GroupJoin(
+                _healthChecks,
+                wp => wp.Exchanger.Name,
+                hc => hc.Exchanger.Name,
+                async (provider, healthChckers) =>
+                {
+                    return new ExchangerInfo()
+                    {
+                        Exchanger = provider.Exchanger,
+                        HealthCheck = healthChckers.Any() ? await healthChckers.Single().HealthCheckAsync() : new HealthCheck()
+                        {
+                            Description = "Unkown",
+                            StatusCode = 0
+                        }
+                    };
+                });
+
+            var results = await Task.WhenAll(healthChecking);
+
+            return results;
         }
 
         [HttpGet("/wallets")]

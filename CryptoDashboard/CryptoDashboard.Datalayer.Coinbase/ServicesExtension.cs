@@ -14,6 +14,8 @@ namespace CryptoDashboard.Datalayer.Coinbase
             service.AddScoped<IWalletsProvider, WalletProvider>();
 
             service.AddScoped<ITransactionsProvider, TransactionProvider>();
+
+            service.AddScoped<IHealthCheck, HealthCheck>();
         }
     }
 }
